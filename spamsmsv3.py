@@ -34,8 +34,6 @@ thang_nay = now.strftime("%m")
 nam_ = now.strftime("%Y")
 mquang = trang + " " + trang + "[" + do + "÷_+" + trang + "] " + trang + "=> "
 banner = """\033[1;31m
-
-\033[1;91m ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 \033[1;32m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⠶⠶⠚⠛⠛⠛⠛⠛⠛⠛⠷⠶⢦⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 \033[1;32m⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⠞⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠻⢶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 \033[1;32m⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡴⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢷⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -3550,7 +3548,7 @@ def run(sdt,i):
   print("[ NAM ~ DEV ] Send Sms - Call | Api - Free | Delay : 5 | Status : Thành Công ",)  
   for j in range(0, 5):
     # code trong vòng lặp
-    print(f" NAM ~ DEV | MADE BY BNAM X HNAM \r",end="")
+    print(f" NAM ~ DEV | MADE BY NAM DEV \r",end="")
     
 for i in range(1,count+1):
   run(sdt,i)
