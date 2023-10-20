@@ -53,7 +53,7 @@ banners=f"""
             \033[1;34m Nhóm Zalo : \033[1;37mhttps://zalo.me/g/kfmgqm225
             \033[1;34m Facebook   : \033[1;37mhttps://facebook.com/nam.nhn131 
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯ 
-            \033[1;31m              TOOL TRAO ĐỔI SUB 
+            \033[1;31m              TOOL TRAO ĐỔI SUB FACEBOOK
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯"""     
 
 def lehoangphuc(so):
@@ -76,7 +76,7 @@ def banner():
 banner()
 	
 while(True):
-        token_tds=input(f'{thanh_xau}{luc}Nhập Token TDS: {vang}')
+        token_tds=input(f'{thanh_xau}{trang}Nhập Token TDS: {vang}')
         
         ttacc=requests.get('https://traodoisub.com/api/?fields=profile&access_token='+str(token_tds))
         if 'error' in ttacc.text:print(red+ttacc.json()['error'].upper())
@@ -129,8 +129,8 @@ while(True):
                 else:
                         print(red+run.json()['error'].upper())
                         
-        stop=int(input(f'{thanh_xau}{luc}NHẬP SỐ NHIỆM VỤ : {vang}'))
-        delay=int(input(f'{thanh_xau}{luc}NHẬP DELAY : {vang}'))
+        stop=int(input(f'{thanh_xau}{trang}NHẬP SỐ NHIỆM VỤ : {vang}'))
+        delay=int(input(f'{thanh_xau}{trang}NHẬP DELAY : {vang}'))
         s=0
        
         while(True):
