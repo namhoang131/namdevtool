@@ -30,7 +30,7 @@ def logo():
             \033[1;34m Nhóm Zalo : \033[1;37mhttps://zalo.me/g/kfmgqm225
             \033[1;34m Facebook   : \033[1;37mhttps://facebook.com/nam.nhn131 
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯ 
-            \033[1;31m    TOOL TRAO ĐỔI SUB FACEBOOK
+            \033[1;31m    TOOL TRAO ĐỔI SUB FACEBOOK V2
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯
 """
     os.system('clear')  
