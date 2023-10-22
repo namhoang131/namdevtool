@@ -33,7 +33,7 @@ do = "\033[1;31m"
 vang = "\033[0;93m"
 hong = "\033[1;35m"
 xduong = "\033[1;34m"
-lam = "\033[1;36m"
+xnhac = "\033[1;36m"
 red='\u001b[31;1m'
 yellow='\u001b[33;1m'
 green='\u001b[32;1m'
@@ -73,14 +73,14 @@ def logo():
             \033[1;34m Nhóm Zalo : \033[1;37mhttps://zalo.me/g/kfmgqm225
             \033[1;34m Facebook   : \033[1;37mhttps://facebook.com/nam.nhn131 
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯ 
-            \033[1;31m    TOOL NUÔI FACEBOOK
-            \033[1;36m╰─────────────────────────────────────────────────────⋟─╯ """
+            \033[1;31m                 TOOL NUÔI FACEBOOK
+            \033[1;36m╰─────────────────────────────────────────────────────⋟─╯"""
     print(logo)
 #=======================[ NHẬP KEY ]=======================
 os.system("cls" if os.name == "nt" else "clear")
 logo()
 import requests,re,os,sys,time,random
-ck=input(f"{trang}Nhập Cookie Facebook Cần Nuôi:{vang} ")
+ck=input("\033[1;37mNhập Cookie Facebook Cần Nuôi:\033[1;33m ")
 idck=re.findall("c_user=.*?;",ck)[0]
 idfb=idck.replace("c_user=","").replace(";","")
 head={"Host":"mbasic.facebook.com","content-type":"application/x-www-form-urlencoded","user-agent":"Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","sec-fetch-site":"same-origin","sec-fetch-mode":"navigate","sec-fetch-user":"?1","sec-fetch-dest":"document","cookie":ck}
@@ -119,7 +119,7 @@ def jond(head):
     print("\033[1;33mJOIN GROUP\033[1;31m-\033[1;35m[\033[1;32m",idbv,"\033[1;35m]")
 os.system("clear")
 logo()
-print(f"{trang}Bắt Đầu Nuôi ID{vang}",idfb,f"{vang}")
+print("\033[1;33mBắt Đầu Nuôi UID\033[1;31m-\033[1;32m[\033[1;37m",idfb,"\033[1;32m]")
 print("\033[1;34m_________________________________")
 while(True):
   list=["addfr(head)","like(head)","jond(head)"]
