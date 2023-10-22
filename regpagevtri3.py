@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 now=datetime.now()
 os.system("cls" if os.name == "nt" else "clear")
 banner="""
-            \033[1;36m╭─⋞─────────────────────────────────────────────────────╮
+        	\033[1;36m╭─⋞─────────────────────────────────────────────────────╮
             \033[1;31m███╗   ██╗ █████╗ ███╗   ███╗    ██████  ███████╗██╗   ██╗          
             \033[1;32m████╗  ██║██╔══██╗████╗ ████║    ██╔══██╗██╔════╝██║   ██║          
             \033[1;33m██╔██╗ ██║███████║██╔████╔██║    ██║  ██║█████╗  ╚██╗ ██╔╝          
@@ -17,7 +17,7 @@ banner="""
             \033[1;34m Nhóm Zalo : \033[1;37mhttps://zalo.me/g/kfmgqm225
             \033[1;34m Facebook   : \033[1;37mhttps://facebook.com/nam.nhn131 
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯ 
-            \033[1;31m           TOOL REG PAGE VỊ TRÍ BẰNG COOKIE
+            \033[1;31m               TOOL REG PAGE VỊ TRÍ COOKIE
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯
 """
 for X in banner:
@@ -108,23 +108,23 @@ def EAAG(cookie, fa):
 def idelay(o):
     while(o>0):
         o=o-1
-        print(f"[BNam x HNam][.....""]""["+str(o)+"]""     ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][.....""]""["+str(o)+"]""     ",end='\r')
         sleep(1/6)
-        print(f"[BNam x HNam][X....""]""["+str(o)+"]""     ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][X....""]""["+str(o)+"]""     ",end='\r')
         sleep(1/6)
-        print(f"[BNam x HNam][XX...""]""["+str(o)+"]" "     ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][XX...""]""["+str(o)+"]" "     ",end='\r')
         sleep(1/6)
-        print(f"[BNam x HNam][XXX..""]""["+str(o)+"]"" ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][XXX..""]""["+str(o)+"]"" ",end='\r')
         sleep(1/6)
-        print(f"[BNam x HNam][XXXX.""]""["+str(o)+"]""     ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][XXXX.""]""["+str(o)+"]""     ",end='\r')
         sleep(1/6)
-        print(f"[BNam x HNam][XXXXX""]""["+str(o)+"]""     ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][XXXXX""]""["+str(o)+"]""     ",end='\r')
         sleep(1/6)
 
 list_token_page=[]
 list_id_page=[]
 token_s=1
-ckk=input('\033[1;37m Nhập Cookie Facebook : \033[1;33m ')
+ckk=input('\033[1;37mNHẬP COOKIE FACEBOOK : \033[1;33m')
 h_fa=input('\033[1;37mNHẬP 2FA(NẾU CÓ) : \033[1;33m')
 cookie=ckk
 fa=h_fa
@@ -147,7 +147,7 @@ if 'access_token' in get_token_page:
     ten=get_token_page["name"]
 elif 'error' in get_token_page:print(get_token_page['error']['message'])
 else:print(get_token_page)
-delay=int(input('\033[1;37mNHẬP DELAY : \033[1;33m'))
+delay=int(input('NHẬP DELAY : '))
 dem=0
 
 while(True):
