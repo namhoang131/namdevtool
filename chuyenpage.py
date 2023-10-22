@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 now=datetime.now()
 os.system("cls" if os.name == "nt" else "clear")
 banner="""
-            \033[1;36m╭─⋞─────────────────────────────────────────────────────╮
+        	\033[1;36m╭─⋞─────────────────────────────────────────────────────╮
             \033[1;31m███╗   ██╗ █████╗ ███╗   ███╗    ██████  ███████╗██╗   ██╗          
             \033[1;32m████╗  ██║██╔══██╗████╗ ████║    ██╔══██╗██╔════╝██║   ██║          
             \033[1;33m██╔██╗ ██║███████║██╔████╔██║    ██║  ██║█████╗  ╚██╗ ██╔╝          
@@ -17,7 +17,7 @@ banner="""
             \033[1;34m Nhóm Zalo : \033[1;37mhttps://zalo.me/g/kfmgqm225
             \033[1;34m Facebook   : \033[1;37mhttps://facebook.com/nam.nhn131 
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯ 
-            \033[1;31m          TOOL CHUYỂN PAGE VỊ TRÍ + UP AVATAR
+            \033[1;31m           TOOL CHUYỂN PAGE VỊ TRÍ + UP AVT
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯
 """
 for X in banner:
@@ -120,21 +120,21 @@ listanh = ["https://i.pinimg.com/564x/a2/18/35/a2183520bc19f5a2df78a4f66afb5a2d.
 def idelay(o):
     while(o>0):
         o=o-1
-        print(f"[Nam~Dev][.....""]""["+str(o)+"]""     ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][.....""]""["+str(o)+"]""     ",end='\r')
         sleep(1/6)
-        print(f"[Nam~Dev][X....""]""["+str(o)+"]""     ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][X....""]""["+str(o)+"]""     ",end='\r')
         sleep(1/6)
-        print(f"[Nam~Dev][XX...""]""["+str(o)+"]" "     ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][XX...""]""["+str(o)+"]" "    ",end='\r')
         sleep(1/6)
-        print(f"[Nam~Dev][XXX..""]""["+str(o)+"]"" ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][XXX..""]""["+str(o)+"]""     ",end='\r')
         sleep(1/6)
-        print(f"[Nam~Dev][XXXX.""]""["+str(o)+"]""     ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][XXXX.""]""["+str(o)+"]""     ",end='\r')
         sleep(1/6)
-        print(f"[Nam~Dev][XXXXX""]""["+str(o)+"]""     ",end='\r')
+        print(f"[🍁Nam ~ Dev🍁][XXXXX""]""["+str(o)+"]""     ",end='\r')
         sleep(1/6)
 
-ckk=input('\033[1;37m Nhập Cookie Facebook : \033[1;33m ')
-hai_fa=input('\033[1;37mNHẬP 2FA(NẾU CÓ) : \033[1;33m')
+ckk=input('\033[1;37mNHẬP COOKIE: \033[1;33m')
+hai_fa=input('\033[1;37mNHẬP 2FA(NẾU CÓ): \033[1;33m')
 	
 os.system("cls" if os.name == "nt" else "clear")
 cookie=ckk
@@ -149,7 +149,7 @@ listidpage = []
 a = 0
 while True:
 	a += 1
-	idp = input("\033[1;36mNHẬP ID PAGE MẸ THỨ "+str(a)+" ")
+	idp = input("\033[1;32mNHẬP ID PAGE MẸ THỨ "+str(a)+" ")
 	if idp == "":
 		break
 	listidpage.append(idp)
@@ -188,11 +188,11 @@ if "success" in tach:
 	print(f"\033[1;36mĐANG ÚP AVT PAGE {id_con}", end="\r")
 	upa=requests.get(f"https://vannhi9505.000webhostapp.com/UPAVTFANPAGE.php?link={anh}&id={id_con}&cookie={ckk}")
 		   
-	print(f"\033[1;32m[{dem}] | [{gio}] | [SUCCESS] |ID : {id_con} | NAME : {name_con} |")
+	print(f"\033[1;36m[{dem}] | [{gio}] | [SUCCESS] |ID : {id_con} | NAME : {name_con} |")
 	idelay(delay)
 else:
 	print("\033[1;31mCHUYỂN KHÔNG THÀNH CÔNG !!")
 	gio = datetime.now().strftime("%H:%M:%S")
 	dem+=1
-	print(f"\033[1;31m[{dem}] | [{gio}] | [ERROR] | ID : {id_con} | NAME : {name_con} |")
+	print(f"\033[1;32m[{dem}] | [{gio}] | [ERROR] | ID : {id_con} | NAME : {name_con} |")
 	idelay(delay)
