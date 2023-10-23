@@ -67,7 +67,7 @@ def run_share(id_post,token):
         with share_lock:
             share_index += 1
             completed_shares += 1
-            print(Colorate.Diagonal(Colors.green_to_white,f'[●] {datetime.now().strftime("%H:%M:%S")} | Buff Share Thành Công : {share_index}/{so_luong} [ HDT - TOOL ]'))
+            print(Colorate.Diagonal(Colors.green_to_white,f'[●] {datetime.now().strftime("%H:%M:%S")} | Buff Share Thành Công : {share_index}/{so_luong} [ 🌸Nam ~ Dev🌸 ]'))
             if completed_shares >= so_luong:
                 os._exit(0)
     except Exception as e:
