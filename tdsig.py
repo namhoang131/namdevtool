@@ -454,15 +454,15 @@ def job():
                                 nhan=duyet['data']['msg']
                                 tong=duyet['data']['pending']
                                 for i in range(int(delayfl),-1,-1):
-                                    print(f'{Red}[{Black}BNamxHnam]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}|{Red}] ',end='\r')
+                                    print(f'{Red}[{Black}Nam~Dev]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}|{Red}] ',end='\r')
                                     sleep(0.2)
-                                    print(f'{Red}[{Yellow}BNamxHnam]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}/{Red}] ',end='\r')
+                                    print(f'{Red}[{Yellow}Nam~Dev]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}/{Red}] ',end='\r')
                                     sleep(0.2)
-                                    print(f'{Red}[{Purple}BNamxHnam]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}-{Red}] ',end='\r')
+                                    print(f'{Red}[{Purple}Nam~Dev]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}-{Red}] ',end='\r')
                                     sleep(0.2)
-                                    print(f'{Red}[{Cyan}BNamxHnam]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}+{Red}] ',end='\r')
+                                    print(f'{Red}[{Cyan}Nam~Dev]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}+{Red}] ',end='\r')
                                     sleep(0.2)
-                                    print(f'{Red}[{Green}BNamxHnam]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}\{Red}] ',end='\r')
+                                    print(f'{Red}[{Green}Nam~Dev]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}\{Red}] ',end='\r')
                                     sleep(0.2)
                                 if(kkk==sofl):
                                     break
@@ -533,15 +533,15 @@ def job():
                                         break
                                 tong=duyet['data']['pending']
                                 for i in range(int(delaylike),-1,-1):
-                                    print(f'{Red}[{Black}BNamxHnam]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}|{Red}] ',end='\r')
+                                    print(f'{Red}[{Black}Nam~Dev]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}|{Red}] ',end='\r')
                                     sleep(0.2)
-                                    print(f'{Red}[{Yellow}BNamxHnam]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}/{Red}] ',end='\r')
+                                    print(f'{Red}[{Yellow}Nam~Dev]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}/{Red}] ',end='\r')
                                     sleep(0.2)
-                                    print(f'{Red}[{Purple}BNamxHnam]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}-{Red}] ',end='\r')
+                                    print(f'{Red}[{Purple}Nam~Dev]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}-{Red}] ',end='\r')
                                     sleep(0.2)
-                                    print(f'{Red}[{Cyan}BNamxHnam]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}+{Red}] ',end='\r')
+                                    print(f'{Red}[{Cyan}Nam~Dev]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}+{Red}] ',end='\r')
                                     sleep(0.2)
-                                    print(f'{Red}[{Green}BNamxHnam]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}\{Red}] ',end='\r')
+                                    print(f'{Red}[{Green}Nam~Dev]{Red}[{White}{str(i)}{Red}]  {Green}SLEEP {Red}[{White}\{Red}] ',end='\r')
                                     sleep(0.2)
                                 if(ooo==solike):
                                     break
