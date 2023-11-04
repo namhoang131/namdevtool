@@ -1,106 +1,93 @@
-import colorama
-from colorama import Fore, Style
-import requests,os,sys, time
-from random import choice, randint, shuffle
-from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
-from os.path import isfile
-from bs4 import BeautifulSoup
-from datetime import datetime
-import re,requests,os,sys
-from time import sleep 
-from datetime import date
-import requests, random
-import requests
-import base64, json,os
-from datetime import date
-from datetime import datetime
-from time import sleep,strftime
-from bs4 import BeautifulSoup
-from datetime import datetime
-import re,requests,os,sys
-from time import sleep
-from datetime import date
-import requests, random
-import uuid, re
-from pystyle import Write,Colors
-from bs4 import BeautifulSoup
-import socket
-from datetime import datetime
-import threading,base64
-import os,time,re,json,random
-from datetime import datetime
-from time import sleep,strftime
-import requests
-import os, sys
+import os,sys,re
+import datetime
+import json
 import random
+from sys import platform
 try:
-  from faker import Faker
-  from requests import session
-  from colorama import Fore, Style
-  import requests, random, re
-  from random import randint
-  import requests,pystyle
-except:
-  os.system("pip install faker")
-  os.system("pip install licensing")
-  os.system("pip install requests")
-  os.system("pip install colorama")
-  os.system('pip install requests && pip install bs4 && pip install pystyle')
-  os.system("pip install termcolor")
-  print('__Vui Lòng Chạy Lại Tool__')
+  import requests
+except ImportError:
+  os.system('pip install requests')
+else:
+  pass
+try:
+  from colorama import Back, Fore, Fore, Style, init
+except ImportError:
+  os.system('pip install colorama')
+else:
+  pass
+try:
+  import time
+except ImportError:
+  os.system('pkg install time')
+else:
+  pass
+try:
+  from bs4 import BeautifulSoup
+except ImportError:
+  os.system('pip3 install beautifulsoup4')
+else:
+  pass
+from colorama import Back, Fore, Fore, Style, init
+import requests
+from bs4 import BeautifulSoup
+import time
 from time import sleep
+import json
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
-from licensing.models import *
-from licensing.methods import Key, Helpers     
-    
-from datetime import datetime
-from time import sleep,strftime
-time=datetime.now().strftime("%H:%M:%S")
-import socket
-from pystyle import *
-#màu
-luc = "\033[1;32m"
-trang = "\033[1;37m"
-do = "\033[1;31m"
-vang = "\033[0;93m"
-hong = "\033[1;35m"
-xduong = "\033[1;34m"
-xnhac = "\033[1;36m"
-red='\u001b[31;1m'
-yellow='\u001b[33;1m'
-green='\u001b[32;1m'
-blue='\u001b[34;1m'
-tim='\033[1;35m'
-xanhlam='\033[1;36m'
-xam='\033[1;30m'
-black='\033[1;19m'
-#Đánh Dấu Bản Quyền
-hhoang_tool = trang + " " + trang + "[" + do + "●" + trang + "] " + trang + "=> "
-hdang = trang + " " + trang + "[" + do + "●" + trang + "] " + trang + "=> "
-thanh = trang + "-------------------------------------------------------------------------"
+System.Clear()
+ 
+init(autoreset=True)
+may = 'mb' if platform[0:3] == 'lin' else 'pc'
 
-#today nand clear
-os.system('cls')
-data_machine = []
-today = date.today()
-os.system('clear')
-#daystime
-now = datetime.now()
-thu = now.strftime("%A")
-ngay_hom_nay = now.strftime("%d")
-thang_nay = now.strftime("%m")
-nam_ = now.strftime("%Y")
 
-def get_ip_from_url(url):
-    response = requests.get(url)
-    ip_address = socket.gethostbyname(response.text.strip())
-    return ip_address
-url = "http://kiemtraip.com/raw.php"
-ip = get_ip_from_url(url)
-a = " \033[1;97m[\033[1;31m+_+\033[1;97m] => "
-def logo():
-    os.system("cls" if os.name == "nt" else "clear")
-    logo=f"""
+def pr3(text):
+  lines = text.split('\n')
+  for line in lines:
+      sys.stdout.write(line+'\n')
+      sys.stdout.flush()
+      sleep(0.1)
+def pr(text):
+  for i in range(len(text)+1):
+      sys.stdout.write("\r" + text[:i])
+      sys.stdout.flush()
+      sleep(0.01)
+  print()
+
+def time():
+  current_time = datetime.datetime.now()
+
+  time = current_time.strftime("%M:%S")
+  return time
+
+
+
+
+
+def changetoken(red,green,white):
+  if not os.path.exists("cache_golike_auth.txt"):
+   pass
+  else:
+    text=f'''{green}BẠN MUỐN DÙNG AUTH CŨ HAY ĐỔI AUTH
+{red}[{white}1{red}] ĐỔI AUTH
+{red}[{white}2{red}] DÙNG AUTH CŨ'''
+    pr3(text)
+    changetoken=int(input(f'{red}NHẬP LỰA CHỌN: {green}'))
+    if changetoken==1:
+      file_name = 'cache_golike_auth.txt'
+      if os.path.exists(file_name):
+          os.remove(file_name)
+    else:
+      pass
+      
+
+
+
+
+
+
+
+def banner(red,green,blue,yellow,cyan,pink):
+  text=f"""    
             \033[1;36m╭─⋞─────────────────────────────────────────────────────╮
             \033[1;31m███╗   ██╗ █████╗ ███╗   ███╗    ██████  ███████╗██╗   ██╗          
             \033[1;32m████╗  ██║██╔══██╗████╗ ████║    ██╔══██╗██╔════╝██║   ██║          
@@ -112,228 +99,340 @@ def logo():
             \033[1;34m Nhóm Zalo : \033[1;37mhttps://zalo.me/g/kfmgqm225
             \033[1;34m Facebook   : \033[1;37mhttps://facebook.com/nam.nhn131 
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯ 
-            \033[1;31m                    TOOL GOLIKE V2
-            \033[1;36m╰─────────────────────────────────────────────────────⋟─╯
-  """
-
-    print(logo)
+            \033[1;31m                   TOOL GOLIKE V2
+            \033[1;36m╰─────────────────────────────────────────────────────⋟─╯"""
+  pr3(text)
 
 
-# ======================== [ HOME TOOL ] ========================
-os.system("cls" if os.name == "nt" else "clear")
-logo()
 
-def skipjob(token,user_agent,account_id,ads_id,object_id,type):
-  headers = {
-    'authority': 'sv5.golike.net',
-    'accept': 'application/json, text/plain, */*',
-    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-    'authorization': f'Bearer {token}',
-    'content-type': 'application/json;charset=UTF-8',
-    'origin': 'https://app.golike.net',
-    'referer': 'https://app.golike.net/',
-    'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    't': 'VFZSWk5VMUVSVEZQVkdjMFRXYzlQUT09',
-    'user-agent': user_agent,
-}
-  json_data = {
-    'ads_id': ads_id,
-    'object_id': object_id,
-    'account_id': account_id,
-    'type': type,
-}
-  try:
-    response = requests.post('https://sv5.golike.net/api/advertising/publishers/tiktok/skip-jobs', headers=headers, json=json_data).json()
-    if response['status'] == 200:
-      skip=response['message']
-      print(f'\033[1;35m Đang bỏ qua job',skip)
-  except:
-    print("\033[1;34m Skip Job thất bại")
 
-def nxu(token,account_id,user_agent,ads_id,object_id,type):
-  headers = {
-    'authority': 'sv5.golike.net',
-    'accept': 'application/json, text/plain, */*',
-    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-    'authorization': f'Bearer {token}',
-    'content-type': 'application/json;charset=UTF-8',
-    'origin': 'https://app.golike.net',
-    'referer': 'https://app.golike.net/',
-    'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    't': 'VFZSWk5VMUVSWGxPUkZVMFRVRTlQUT09',
-    'user-agent': user_agent,
-}
-  json_data = {
-    'ads_id': ads_id,
-    'account_id': account_id,
-    'async': True,
-    'data': None,
+
+
+def checkver():
+  vs= 'https://ghichu.vn/nV6Vd'
+  
+  # Sử dụng thư viện requests để tải trang web
+  response1 = requests.get(vs)
+  
+  # Kiểm tra xem tải trang thành công hay không (HTTP status code 200 là thành công)
+  if response1.status_code == 200:
+      # Parse nội dung HTML bằng BeautifulSoup
+      soup1 = BeautifulSoup(response1.text, 'html.parser')
+  
+      # Tìm thẻ <textarea> bằng class 'content'
+      textarea = soup1.find('textarea', {'class': 'content'})
+  
+      # Lấy nội dung bên trong thẻ <textarea>
+      if textarea:
+          content = textarea.string.strip()  # Sử dụng .string để lấy nội dung và .strip() để loại bỏ khoảng trắng thừa
+          return content
+      else:
+          print(f'{Fore.LIGHTRED_EX}KIỂM TRA MẠNG CỦA BẠN')
+
+
+
+
+
+
+
+
+
+
+
+
+
+def newtool():
+    print(f"{magenta}Version 1.0.0")
+    newversion = 'https://ghichu.vn/rwSyz'
+
+
+    datanewversion= requests.get(newversion)
+
+# Kiểm tra xem tải trang thành công hay không (HTTP status code 200 là thành công)
+    if datanewversion.status_code == 200:
+        # Parse nội dung HTML bằng BeautifulSoup
+        boctach = BeautifulSoup(datanewversion.text, 'html.parser')
     
+        # Tìm thẻ <textarea> bằng class 'content'
+        trongdata = boctach.find('textarea', {'class': 'content'})
+    
+        # Lấy nội dung bên trong thẻ <textarea>
+def checkauth(red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink):
+  while True :
+    if not os.path.exists("cache_golike_auth.txt"):
+      auth=str(input(f'~[+]{red}NHẬP AUTH:{green} '))
+      headers ={
+    'Authorization'	:auth,
+    't':	'VFZSWk5VOUVVVEJQUkZGNFRXYzlQUT09',
+ }
+      check=requests.get('https://gateway.golike.net/api/tiktok-account',headers=headers).json()
+      if check['status']==200:
+              name=check['data'][0]['username']
+              hea={
+'Authorization':auth
 }
-  while True:
+# Chuỗi JSON đầu vào
+              data=requests.get('https://gateway.golike.net/api/statistics/report',headers=hea).json()
+              #data = json.loads(json_string)
+              
+              # Tính tổng pending coin
+              total_pending_coin = 0
+              for key, value in data.items():
+                  if isinstance(value, dict) and 'pending_coin' in value:
+                      total_pending_coin += value['pending_coin']
+              xht=data['current_coin']
+              text=f'~[+]{red}SUCCESS'
+              text=f'{red}TÊN TÀI KHOẢN: {green} {name}'
+              pr(text)
+              text=f'{red}XU HIỆN TẠI :{green}{xht}'
+              pr(text)
+              # In tổng pending coin
+              text=f'{red}XU CHỜ DUYỆT:{green}{total_pending_coin}'
+              pr(text)
+              print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+              text=f'~[+]{red}SELECT {green}ACC CHẠY NHIỆM VỤ '
+              pr(text)
+              nicknames = [item['nickname'] for item in check['data'] if 'nickname' in item]
+              for i, nickname in enumerate(nicknames, start=1):
+                  globals()[f'{i}'] = nickname
+              # In giá trị của các biến
+              for i, nickname in enumerate(nicknames, start=1):
+                  text=f'{red}[{green}{i}{red}]: {globals()[f"{i}"]}'
+                  pr(text)
+              with open("cache_golike_auth.txt", "w") as state_file:
+                state_file.write(auth)
+              return auth,check
+      else:
+        text=f'~[+]{red}FAIL AUTH KHÔNG CHÍNH XÁC>>{green}VUI LÒNG NHẬP LẠI'
+        continue 
+    else:
+        with open('cache_golike_auth.txt') as f:
+            lines = f.readlines()
+            auth=lines[0]
+            headers ={
+          'Authorization'	:auth,
+          't':	'VFZSWk5VOUVVVEJQUkZGNFRXYzlQUT09',
+}
+            check=requests.get('https://gateway.golike.net/api/tiktok-account',headers=headers).json()
+            if check['status']==200:
+              name =check['data'][0]['username']
+              hea={
+'Authorization':auth
+}
+# Chuỗi JSON đầu vào
+              data=requests.get('https://gateway.golike.net/api/statistics/report',headers=hea).json()
+              #data = json.loads(json_string)
+              
+              # Tính tổng pending coin
+              total_pending_coin = 0
+              for key, value in data.items():
+                  if isinstance(value, dict) and 'pending_coin' in value:
+                      total_pending_coin += value['pending_coin']
+              xht=data['current_coin']
+              text=f'{red}TÊN TÀI KHOẢN: {green} {name}'
+              pr(text)
+              text=f'{red}XU HIỆN TẠI :{green}{xht}'
+              pr(text)
+              # In tổng pending coin
+              text=f'{red}XU CHỜ DUYỆT:{green}{total_pending_coin}'
+              pr(text)
+              nicknames = [item['nickname'] for item in check['data'] if 'nickname' in item]
+              for i, nickname in enumerate(nicknames, start=1):
+                  globals()[f'{i}'] = nickname
+              print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+              text=f'~[+]{red}SELECT {green}ACC CHẠY NHIỆM VỤ '
+              pr(text)
+              # In giá trị của các biến
+              for i, nickname in enumerate(nicknames, start=1):
+                  text=f'{red}[{green}{i}{red}]: {globals()[f"{i}"]}'
+                  pr(text)
+                  
+            return auth, check
+
+
+
+
+def get_id_from_nickname_number(ranmau,check,red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink):
+  while True :
+    
+    user_input=input(f'~[+]{random.choice(ranmau)}>{random.choice(ranmau)}>{random.choice(ranmau)}> {green}CHỌN ACC TIKTOK MUỐN CHẠY JOB:{green} ')
     try:
-      response = requests.post(
-    'https://sv5.golike.net/api/advertising/publishers/tiktok/complete-jobs',
-    headers=headers,
-    json=json_data,
-)
-      sleep(5)
-      x = response.json()
-      if x['status'] == 200:
-        if x['message'] == "Hoàn thành job thành công":
-          print("\033[1;32m Hoàn thành job lần thứ 2 thành công ")    
-          break
-        ms = x['message']
-        prices=x['data']['prices']
-        print(f"=> \033[1;32m Báo cáo lần 2 thành công")
-        break
-      if x['status'] == 400:
-        headers = {
-    'authority': 'sv5.golike.net',
-    'accept': 'application/json, text/plain, */*',
-    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-    'authorization': f'Bearer {token}',
-    'content-type': 'application/json;charset=UTF-8',
-    'origin': 'https://app.golike.net',
-    'referer': 'https://app.golike.net/',
-    'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    't': 'VFZSWk5VMUVSWGxPUkZVMFRVRTlQUT09',
-    'user-agent': user_agent,
+      n = int(user_input)
+      if 'data' in check and len(check['data']) >= n:
+          idtiktok = check['data'][n-1]['id']
+          if idtiktok :
+              text=f"{red}ID CỦA NICKNAME SỐ {n} LÀ: {green}{idtiktok}"
+              pr(text)
+              print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+              return idtiktok 
+          else:
+              text=f"{red}KHÔNG TÙM THẤY NICKNAME TƯƠNG ỨNG."
+              pr(text)
+      else:
+          continue 
+    except ValueError:
+          pr(f"{red}VUI LÒNG CHỈ NHẬP SỐ.")
+          continue 
+
+
+
+
+
+
+def getjob(maxjob,delay,auth,idtiktok,red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink):
+  startmaxjob=1
+  while True :
+    hea={
+    'Authorization':	auth,
+    't':	'VFZSWk5VOUVUWHBOVkUxM1QwRTlQUT09'
 }
-        json_data = {
-    'ads_id': ads_id,
-    'account_id': account_id,
-    'async': True,
-    'data': None,
+    a=requests.get(f'https://gateway.golike.net/api/advertising/publishers/tiktok/jobs?account_id={idtiktok}&data=null',headers=hea).json()
+    link=a['data']['link']
+    id=a['data']['id']
+    object_id=a['lock']['object_id']
+    os.system(f'xdg-open {link}')
     
+    for k in range(delay,-1,-1):
+      mau=random.choice(ranmau)
+      print(f'{random.choice(ranmau)}LOADING  {random.choice(ranmau)}>>  {yellow}NVỤ MỚI SAU  {random.choice(ranmau)}>>  {random.choice(ranmau)}[{k}s]',end='\r')
+      sleep(1)
+    headers = {
+        'authorization': auth,
+        't': 'VFZSWk5VOUVUVFZOVkZsNVRrRTlQUT09',
 }
-        while True:
-          try:
-            response = requests.post(
-    'https://sv5.golike.net/api/advertising/publishers/tiktok/complete-jobs',
-    headers=headers,
-    json=json_data,
-)
-            sleep(5)
-            x = response.json()
-            if x['status'] == 200:
-              if x['message'] == "Hoàn thành job thành công":
-                print("\033[1;32m Hoàn thành lần thứ 2 thành công")
-                break
-              ms = x['message']
-              prices=x['data']['prices']  
-              print(f"+{price} đồng")       
-              break
-            if x['status'] == 400:
-              skipjob(token,user_agent,account_id,ads_id,object_id,type)
-              break
-          except:
-            continue
-      if x['status'] == 422:
-        skipjob(token,user_agent,account_id,ads_id,object_id,type)
-        break
-    except:
-      continue
-       
-          
+    
+    json_data = {
+        'ads_id': id,
+        'account_id': idtiktok ,
+        'async': True,
+        'data': None,
+    }
+    
+    g = requests.post(
+        'https://gateway.golike.net/api/advertising/publishers/tiktok/complete-jobs',
+        headers=headers,
+        json=json_data,
+    ).json()
+    
+    if g['status']==200:
+      print(f'{green}[{startmaxjob}]{cyan} [{time()}] | {random.choice(ranmau)}SUCCESS |  {green}FOLLOW | {yellow}+{xuthem(auth)}đ')
+      startmaxjob+=1
+      if startmaxjob == maxjob+1:
+        print(f'~[+]{pink}ĐÃ ĐẠT MAX JOB. ')
+        return
+    if g['status'] !=200:
+      headers = {
+          'authorization': auth,
+          't': 'VFZSWk5VOUVVWGhQVkZFeFRsRTlQUT09',
+      }
+      
+      json_data = {
+          'description': 'Báo cáo hoàn thành thất bại',
+          'users_advertising_id': id,
+          'type': 'ads',
+          'provider': 'tiktok',
+          'fb_id': idtiktok ,
+          'error_type': 3,
+      }
+      
+      requests.post('https://gateway.golike.net/api/report/send', headers=headers, json=json_data).json()
+     
+      
+      headers = {
+          'authorization': auth,
+          't': 'VFZSWk5VOUVVWGhQVkZFeFQwRTlQUT09',
+ }
+      
+      json_data = {
+          'ads_id': id,
+          'object_id': object_id,
+          'account_id': idtiktok ,
+          'type': 'follow',
+      }
+      skipjob=requests.post('https://gateway.golike.net/api/advertising/publishers/tiktok/skip-jobs',
+          headers=headers,
+          json=json_data,
+      ).json()
+      print(f'{green}[{startmaxjob}] {cyan}[{time()}] {end}| {random.choice(ranmau)}  FAIL  {end}|{green} FOLLOW  {end}| {red}ĐÃ BỎ QUA JOB')
+      startmaxjob+=1
+      if startmaxjob == maxjob+1:
+        print(f'~[+]{green}ĐÃ ĐẠT MAX JOB')
+        return 
+
+
+
+
+  
   
 
 
-def getjob(account_id,token,user_agent,delay):
-  os.system('clear')
+  
+  
+  
+  
+  
+  
+def xuthem(auth):
   headers = {
-    'authority': 'sv5.golike.net',
-    'accept': 'application/json, text/plain, */*',
-    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-    'authorization': f'Bearer {token}',
-    'content-type': 'application/json;charset=utf-8',
-    'origin': 'https://app.golike.net',
-    'referer': 'https://app.golike.net/',
-    'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    't': 'VFZSWk5VMUVSWGxOZWxsNlRrRTlQUT09',
-    'user-agent': user_agent,
-}
+      'authorization': auth,
+  }
+  
   params = {
-    'account_id': account_id,
-    'data': 'null',
-}
-  while True:
-    try:
-      response = requests.get('https://sv5.golike.net/api/advertising/publishers/tiktok/jobs', params=params, headers=headers).json()
-      sleep(0.1)
-      if response['status'] == 200:
-        link = response['data']['link']
-        type=response['lock']['type']
-        ads_id=response['lock']['ads_id']
-        object_id=response['lock']['object_id']
-        os.system(f"termux-open-url {link}")
-        print(f'\033[1;37m| {link} | {type} \033[1;37m| {ads_id} \033[1;37m|')
-        nxu(token,account_id,user_agent,ads_id,object_id,type)
-      if response['status'] == 400:
-        print("\033[1;33m Đang tìm job để làm, đợi xíu",end="  \r")
-        continue
-    except:
-      print("\033[1;31m Nhận job thất bại")
+      'page': '1',
+  }
+  xu = requests.get('https://gateway.golike.net/api/advertising/publishers/tiktok/logs', params=params, headers=headers).json()
+  if xu['status']==200:
+                a = [item['prices'] for item in xu['data'] if 'prices' in item]
+                a=a[0]
+                return a
+  
+  
+  
+  
+  
+  
+  
 
-def login(token,user_agent):
-  os.system('clear')
-  headers = {
-    'authority': 'sv5.golike.net',
-    'accept': 'application/json, text/plain, */*',
-    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
-    'authorization': f'Bearer {token}',
-    'content-type': 'application/json;charset=utf-8',
-    'origin': 'https://app.golike.net',
-    'referer': 'https://app.golike.net/',
-    'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    't': 'VFZSWk5VMUVSWGhQVkd0NFRtYzlQUT09',
-    'user-agent': user_agent,
-}
-  try:
-    response = requests.get('https://sv5.golike.net/api/tiktok-account', headers=headers).json()
-    if response['status'] == 200:
-      for i in response['data']:
-        nickname=i.get('nickname')
-        accid=i.get('id')
-        print('=> acc:' ,nickname ,'|' ,'ID:' ,accid)
-      account_id=input(f"{trang}Nhập id acc muốn chạy: {vang} ")
-      getjob(account_id,token,user_agent,delay)
-  except:
-    print("\033[1;31m KHÔNG ĐÚNG")
 
-def slow_print(text, delay):
-    for char in text:
-        color_code = random.choice(["red", "green", "yellow", "blue", "magenta", "cyan", "white"])
-        colored_char = colored(char, color_code)
-        print(colored_char, end='', flush=True)
-        time.sleep(0.1)
-    print()
-token = input("\033[1;31m[\033[1;33m</>\033[1;31m]\033[1;37m NHẬP TOKEN: \033[1;33m")
-user_agent = input("\033[1;37m NHẬP USER_AGENT: \033[1;33m ")
-delay = float(input("\033[1;37mNhập DELAY: \033[1;33m"))
-login(token, user_agent)
+
+
+  
+  
+  
+  
+  
+#biến
+#green='\033[38;5;10m'
+blue='\033[38;5;12m'
+cyan='\033[38;5;14m'
+white='\033[1;39m'
+magenta='\033[38;5;5m'
+orange='\033[38;5;202m'
+xanhnhat = "\033[1;36m"
+red = "\033[1;31m"
+green = "\033[1;32m"
+yellow = "\033[1;33m"
+xduong = "\033[1;34m"
+pink = "\033[1;35m"
+trang = "\033[1;39m"
+whiteb="\033[1;39m"
+redb="\033[1;31m"
+end='\033[0m'
+ranmau=(red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink)
+
+
+banner(red,green,blue,yellow,cyan,pink)
+ver=checkver()
+if ver == 'Version 2.0':
+  print(f'{pink}VERSION 2.0')
+  changetoken(red,green,white) 
+  auth,check =checkauth(red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink)
+  
+  idtiktok =get_id_from_nickname_number(ranmau,check,red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink)
+  delay =int(input(f'~[+]{red}NHẬP DELAY: {green}'))
+  maxjob= int(input(f'~[+]{red}NHẬP MAX JOB: {green}'))
+  print(f'{cyan}KHỞI CHẠY NHIỆM VỤ',end='\r')
+  sleep(1)
+  getjob(maxjob,delay,auth,idtiktok,red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink)
+else:
+  newtool()
