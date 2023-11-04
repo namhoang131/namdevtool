@@ -63,15 +63,15 @@ def time():
 
 
 
-def changetoken(red,green,white):
+def changetoken(red,green,white,yellow,cyan):
   if not os.path.exists("cache_golike_auth.txt"):
    pass
   else:
-    text=f'''{green}BẠN MUỐN DÙNG AUTH CŨ HAY ĐỔI AUTH
-{red}[{white}1{red}] ĐỔI AUTH
-{red}[{white}2{red}] DÙNG AUTH CŨ'''
+    text=f'''{cyan}BẠN MUỐN DÙNG AUTH CŨ HAY ĐỔI AUTH
+{red}[{yellow}1{red}] {white}ĐỔI AUTH
+{red}[{yellow}2{red}] {white}DÙNG AUTH CŨ'''
     pr3(text)
-    changetoken=int(input(f'{red}NHẬP LỰA CHỌN: {green}'))
+    changetoken=int(input(f'{red}NHẬP LỰA CHỌN: {yellow}'))
     if changetoken==1:
       file_name = 'cache_golike_auth.txt'
       if os.path.exists(file_name):
@@ -160,7 +160,7 @@ def newtool():
 def checkauth(red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink):
   while True :
     if not os.path.exists("cache_golike_auth.txt"):
-      auth=str(input(f'~[+]{red}NHẬP AUTH:{green} '))
+      auth=str(input(f'{red}[{yellow}</>{red}]{white}NHẬP AUTH:{yellow} '))
       headers ={
     'Authorization'	:auth,
     't':	'VFZSWk5VOUVVVEJQUkZGNFRXYzlQUT09',
@@ -181,29 +181,29 @@ def checkauth(red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink):
                   if isinstance(value, dict) and 'pending_coin' in value:
                       total_pending_coin += value['pending_coin']
               xht=data['current_coin']
-              text=f'~[+]{red}SUCCESS'
-              text=f'{red}TÊN TÀI KHOẢN: {green} {name}'
+              text=f'{red}[{yellow}</>{red}]{green}SUCCESS'
+              text=f'{white}TÊN TÀI KHOẢN: {yellow} {name}'
               pr(text)
-              text=f'{red}XU HIỆN TẠI :{green}{xht}'
+              text=f'{white}XU HIỆN TẠI :{yellow}{xht}'
               pr(text)
               # In tổng pending coin
-              text=f'{red}XU CHỜ DUYỆT:{green}{total_pending_coin}'
+              text=f'{white}XU CHỜ DUYỆT:{yellow}{total_pending_coin}'
               pr(text)
               print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-              text=f'~[+]{red}SELECT {green}ACC CHẠY NHIỆM VỤ '
+              text=f'{red}[{yellow}</>{red}]{white}CHỌN ACC CHẠY NHIỆM VỤ '
               pr(text)
               nicknames = [item['nickname'] for item in check['data'] if 'nickname' in item]
               for i, nickname in enumerate(nicknames, start=1):
                   globals()[f'{i}'] = nickname
               # In giá trị của các biến
               for i, nickname in enumerate(nicknames, start=1):
-                  text=f'{red}[{green}{i}{red}]: {globals()[f"{i}"]}'
+                  text=f'{red}[{cyan}{i}{red}]: {globals()[f"{i}"]}'
                   pr(text)
               with open("cache_golike_auth.txt", "w") as state_file:
                 state_file.write(auth)
               return auth,check
       else:
-        text=f'~[+]{red}FAIL AUTH KHÔNG CHÍNH XÁC>>{green}VUI LÒNG NHẬP LẠI'
+        text=f'{red}[{yellow}</>{red}]{red}FAIL AUTH KHÔNG CHÍNH XÁC>>{cyan}VUI LÒNG NHẬP LẠI'
         continue 
     else:
         with open('cache_golike_auth.txt') as f:
@@ -229,18 +229,18 @@ def checkauth(red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink):
                   if isinstance(value, dict) and 'pending_coin' in value:
                       total_pending_coin += value['pending_coin']
               xht=data['current_coin']
-              text=f'{red}TÊN TÀI KHOẢN: {green} {name}'
+              text=f'{white}TÊN TÀI KHOẢN: {yellow} {name}'
               pr(text)
-              text=f'{red}XU HIỆN TẠI :{green}{xht}'
+              text=f'{white}XU HIỆN TẠI :{yellow}{xht}'
               pr(text)
               # In tổng pending coin
-              text=f'{red}XU CHỜ DUYỆT:{green}{total_pending_coin}'
+              text=f'{white}XU CHỜ DUYỆT:{yellow}{total_pending_coin}'
               pr(text)
               nicknames = [item['nickname'] for item in check['data'] if 'nickname' in item]
               for i, nickname in enumerate(nicknames, start=1):
                   globals()[f'{i}'] = nickname
               print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-              text=f'~[+]{red}SELECT {green}ACC CHẠY NHIỆM VỤ '
+              text=f'{red}[{yellow}</>{red}]{white}CHỌN ACC CHẠY NHIỆM VỤ: {yellow} '
               pr(text)
               # In giá trị của các biến
               for i, nickname in enumerate(nicknames, start=1):
@@ -255,13 +255,13 @@ def checkauth(red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink):
 def get_id_from_nickname_number(ranmau,check,red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink):
   while True :
     
-    user_input=input(f'~[+]{random.choice(ranmau)}>{random.choice(ranmau)}>{random.choice(ranmau)}> {green}CHỌN ACC TIKTOK MUỐN CHẠY JOB:{green} ')
+    user_input=input(f'{red}[{yellow}</>{red}]{random.choice(ranmau)}>{random.choice(ranmau)}>{random.choice(ranmau)}> {white}CHỌN ACC TIKTOK MUỐN CHẠY JOB:{yellow} ')
     try:
       n = int(user_input)
       if 'data' in check and len(check['data']) >= n:
           idtiktok = check['data'][n-1]['id']
           if idtiktok :
-              text=f"{red}ID CỦA NICKNAME SỐ {n} LÀ: {green}{idtiktok}"
+              text=f"{white}ID CỦA NICKNAME SỐ {n} LÀ: {yellow}{idtiktok}"
               pr(text)
               print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
               return idtiktok 
@@ -271,7 +271,7 @@ def get_id_from_nickname_number(ranmau,check,red,blue,green,yellow,cyan,magenta,
       else:
           continue 
     except ValueError:
-          pr(f"{red}VUI LÒNG CHỈ NHẬP SỐ.")
+          pr(f"{lam}VUI LÒNG CHỈ NHẬP SỐ.")
           continue 
 
 
@@ -318,7 +318,7 @@ def getjob(maxjob,delay,auth,idtiktok,red,blue,green,yellow,cyan,magenta,orange,
       print(f'{green}[{startmaxjob}]{cyan} [{time()}] | {random.choice(ranmau)}SUCCESS |  {green}FOLLOW | {yellow}+{xuthem(auth)}đ')
       startmaxjob+=1
       if startmaxjob == maxjob+1:
-        print(f'~[+]{pink}ĐÃ ĐẠT MAX JOB. ')
+        print(f'{red}[{yellow}</>{red}]{pink}ĐÃ ĐẠT MAX JOB. ')
         return
     if g['status'] !=200:
       headers = {
@@ -356,7 +356,7 @@ def getjob(maxjob,delay,auth,idtiktok,red,blue,green,yellow,cyan,magenta,orange,
       print(f'{green}[{startmaxjob}] {cyan}[{time()}] {end}| {random.choice(ranmau)}  FAIL  {end}|{green} FOLLOW  {end}| {red}ĐÃ BỎ QUA JOB')
       startmaxjob+=1
       if startmaxjob == maxjob+1:
-        print(f'~[+]{green}ĐÃ ĐẠT MAX JOB')
+        print(f'{red}[{yellow}</>{red}]{green}ĐÃ ĐẠT HOÀN THÀNH JOB')
         return 
 
 
@@ -429,8 +429,8 @@ if ver == 'Version 2.0':
   auth,check =checkauth(red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink)
   
   idtiktok =get_id_from_nickname_number(ranmau,check,red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink)
-  delay =int(input(f'~[+]{red}NHẬP DELAY: {green}'))
-  maxjob= int(input(f'~[+]{red}NHẬP MAX JOB: {green}'))
+  delay =int(input(f'[</>]{white}NHẬP DELAY: {yellow}'))
+  maxjob= int(input(f'[<?>]{white}NHẬP MAX JOB: {yellow}'))
   print(f'{cyan}KHỞI CHẠY NHIỆM VỤ',end='\r')
   sleep(1)
   getjob(maxjob,delay,auth,idtiktok,red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink)
