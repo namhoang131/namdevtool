@@ -287,8 +287,8 @@ class Zefoy:
                     print(f'{do}[\033[1;33mDịch vụ hiện không hoạt động, hãy thử lại sau.')
                     time.sleep(5)
             except Exception as e:
-                print(f'LỖI NGHIÊM TÚC | thử lại sau 10 giây.|| {e}');time.sleep(10)
-                time.sleep(0)
+                print(f'Xảy Ra Lỗi | thử lại sau 10 giây.|| {e}')
+                time.sleep(10)
 	
 if __name__ == "__main__":
 
