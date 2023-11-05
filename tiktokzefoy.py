@@ -170,9 +170,6 @@ class Zefoy:
                     sleep(0.14)
                     print("\r\033[1;31m[\033[1;30mNamDev\033[1;31m] \033[1;92m        ~>\033[1;98m LOADING\033[0;32m | {0} ".format(t)+" | \r", end='')
                     sleep(0.14)
-                    print("\r\r\033[1;95m    Nguyễn Hoàng Nam \033[1;97m                         \r", end='')
-                    time.sleep(1)
-					
                     continue
             elif 'Too many requests. Please slow' in self.video_info:
                 time.sleep(3)
