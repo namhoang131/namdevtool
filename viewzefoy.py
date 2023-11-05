@@ -1,3 +1,4 @@
+#HoangAL
 import os
 try:
 	import requests,colorama,prettytable
@@ -12,21 +13,7 @@ from time import strftime
 from colorama import init, Fore
 from urllib.parse import urlparse, unquote, quote
 from string import ascii_letters, digits
-luc = "\033[1;32m"
-trang = "\033[1;37m"
-do = "\033[1;31m"
-vang = "\033[0;93m"
-hong = "\033[1;35m"
-xduong = "\033[1;34m"
-lam = "\033[1;36m"
-red='\u001b[31;1m'
-yellow='\u001b[33;1m'
-green='\u001b[32;1m'
-blue='\u001b[34;1m'
-tim='\033[1;35m'
-xanhlam='\033[1;36m'
-xam='\033[1;30m'
-black='\033[1;19m'
+
 class Zefoy:
 	# if os.path.exists('config.json') is False: open('config.json','w',encoding='utf-8',errors='ignore').write(json.dumps({'url':'https://www.tiktok.com/t/ZTRToxYct','service':'Views'},indent=4))
 
@@ -42,8 +29,8 @@ class Zefoy:
 		self.services_ids = {}
 		self.services_status = {}
 		self.url = 'None'
-		self.text = '\033[1;33mNam~Dev'
-		url1=input(f"{do}[{vang}</>{do}]{lam}Nhập link video: {vang} ")
+		self.text = 'NamDev'
+		url1=input(" \033[1;31m[\033[1;33m</>\033[1;31m] =>  \033[1;37mNhập Link Video: \033[1;33m")
 		self.url=url1
 
 	def get_captcha(self):
@@ -58,24 +45,24 @@ class Zefoy:
 			captcha_url = request.text.split('<img src="')[1].split('" onerror="imgOnError()" class="')[0]
 			request = self.session.get(f"{self.base_url}{captcha_url}",headers=self.headers)
 			open('captcha.png', 'wb').write(request.content)
-			print('[\033[1;33mNam~Dev] ==>  Đang giải capcha..')
+			print(' \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Đang Giải Capcha...')
 			return False
 		except Exception as e:
-			print(f"[\033[1;33mNam~Dev] ==>  Không thể giải captcha: {e}")
+			print(f" \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Không Thể Giải Capcha: {e}")
 			time.sleep(2)
 			self.get_captcha()
 
 	def send_captcha(self, new_session = False):
 		if new_session: self.session = requests.Session(); os.remove('session'); time.sleep(2)
-		if self.get_captcha(): print('[\033[1;33mNam~Dev] ==>  Đang kêt nối đến session');return (True, 'The session already exists')
+		if self.get_captcha(): print(' \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Đang Kết Nối Đến Session');return (True, 'The session already exists')
 		captcha_solve = self.solve_captcha('captcha.png')[1]
 		self.captcha_[self.captcha_1] = captcha_solve
 		request = self.session.post(self.base_url, headers=self.headers, data=self.captcha_)
 
 		if 'Enter Video URL' in request.text: 
-			print('[\033[1;33mNam~Dev] ==>  Session đã được tạo')
+			print(' \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Session Đã Được Tạo!')
 			open('session','w',encoding='utf-8').write(self.session.cookies.get('PHPSESSID'))
-			print(f"[\033[1;33mNam~Dev] ==>  Giải capcha thành công: {captcha_solve}")
+			print(f" \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Giải Capcha Thành Công: {captcha_solve}")
 			self.video_key = request.text.split('" placeholder="Enter Video URL"')[0].split('name="')[-1]
 			return (True,captcha_solve)
 		else: return (False,captcha_solve)
@@ -96,7 +83,7 @@ class Zefoy:
 		return (self.services, self.services_status)
 
 	def get_table(self, i = 1):
-		table = PrettyTable(field_names=["ID", "DỊCH VỤ", "Status"], title="Status Services", header_style="upper",border=True)
+		table = PrettyTable(field_names=["ID", "Dịch Vụ", "Trạng Thái"], title="Status Services", header_style="upper",border=True)
 		while True:
 			if len(self.get_status_services()[0])>1:break
 			else:print('Cant get services, retrying...');self.send_captcha();time.sleep(2)
@@ -111,8 +98,8 @@ class Zefoy:
 			request = self.session.post(f'{self.base_url}{self.services_ids[self.service]}', headers={'content-type':'multipart/form-data; boundary=----WebKitFormBoundary0nU8PjANC8BhQgjZ', 'user-agent':self.headers['user-agent'], 'origin':'https://zefoy.com'}, data=f'------WebKitFormBoundary0nU8PjANC8BhQgjZ\r\nContent-Disposition: form-data; name="{self.video_key}"\r\n\r\n{self.url}\r\n------WebKitFormBoundary0nU8PjANC8BhQgjZ--\r\n')
 			try: self.video_info = base64.b64decode(unquote(request.text.encode()[::-1])).decode()
 			except: time.sleep(3); continue
-			if 'Session expired. Please re-login' in self.video_info: print('[\033[1;33mNam~Dev] ==>  Phiên hết hạn. Đang đăng nhập lại...');self.send_captcha(); return
-			elif 'service is currently not working' in self.video_info: return (True,'[\033[1;33mNam~Dev] ==>  Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.')
+			if 'Session expired. Please re-login' in self.video_info: print(' \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Phiên Hết Hạn. Đang Đăng Nhập Lại!!!');self.send_captcha(); return
+			elif 'service is currently not working' in self.video_info: return (True,' \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Dịch Vụ Hiện Không Hoạt Động, Hãy Thử Lại Sau. | Bạn Có Thể Thay Đổi Nó Trong Cấu Hình!')
 			elif """onsubmit="showHideElements""" in self.video_info:
 				self.video_info = [self.video_info.split('" name="')[1].split('"')[0],self.video_info.split('value="')[1].split('"')[0]]
 				return (True, request.text)
@@ -123,17 +110,34 @@ class Zefoy:
 				except: 
 					return (False,)
 				if lamtilo==0:self.find_video()
-				elif lamtilo >= 1000: print('[\033[1;33mNam~Dev] ==>  IP Của Bạn Bị Ban')
-				# print(f'[\033[1;33mNam~Tool] ==>  Thời gian chờ để tiếp tục tăng: {t} giây')
+				elif lamtilo >= 1000: print(' \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Your IP was banned')
+				# print(f' \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Thá»i gian chá» Ä‘á»ƒ tiáº¿p tá»¥c tÄƒng: {t} giĂ¢y')
 				# for lam in range(t,0,-1):
 				# 	lam-=1
-				# 	print(f"[\033[1;33mNam~Tool] ==>  Vui lòng chờ: {lam}",end="\r")
+				# 	print(f" \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Vui lĂ²ng chá»: {lam}",end="\r")
 				# 	time.sleep(1)
 				_=time.time()
 				while time.time()-2<_+lamtilo:
 					t-=1
-					print(f"[\033[1;33mNam~Dev] ==>  Vui lòng chờ: {0} ".format(t)+"giây .", end="\r")
-					time.sleep(1)
+					#print(" \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Vui lĂ²ng chá»: {0} ".format(t)+"giĂ¢y", end="\r")
+					print("\r\033[1;31m[\033[1;31mNamDev\033[1;31m] \033[1;90m        \033[1;92m       \033[1;90m | {0} ".format(t)+" | \r ", end='')
+					sleep(0.14)
+					print("\r\033[1;31m[\033[1;31mNamDev\033[1;31m] \033[1;98m ~>       \033[1;92m L      \033[1;90m | {0} ".format(t)+" | \r ", end='')
+					sleep(0.14)
+					print("\r\033[1;31m[\033[1;32mNamDev\033[1;31m] \033[1;97m   ~>     \033[1;93m LO     \033[0;31m | {0} ".format(t)+" | \r ", end='')
+					sleep(0.14)
+					print("\r\033[1;31m[\033[1;33mNamDev\033[1;31m] \033[1;96m     ~>   \033[1;94m LOA    \033[0;33m | {0} ".format(t)+" | \r", end='')
+					sleep(0.14)
+					print("\r\033[1;31m[\033[1;34mNamDev\033[1;31m] \033[1;95m       ~> \033[1;95m LOAD   \033[0;34m | {0} ".format(t)+" | \r", end='')
+					sleep(0.14)
+					print("\r\033[1;31m[\033[1;35mNamDev\033[1;31m] \033[1;94m        ~>\033[1;96m LOADI  \033[0;35m | {0} ".format(t)+" | \r", end='')
+					sleep(0.14)
+					print("\r\033[1;31m[\033[1;36mNamDev\033[1;31m] \033[1;93m        ~>\033[1;97m LOADIN \033[0;36m | {0} ".format(t)+" | \r", end='')
+					sleep(0.14)
+					print("\r\033[1;31m[\033[1;30mNamDev\033[1;31m] \033[1;92m        ~>\033[1;98m LOADING\033[0;32m | {0} ".format(t)+" | \r", end='')
+					sleep(0.14)
+				print("\r\r\033[1;95m    Nguyễn Hoàng Nam \033[1;97m                         \r", end='')
+				time.sleep(1)
 					
 				continue
 			elif 'Too many requests. Please slow' in self.video_info: time.sleep(3)
@@ -145,10 +149,10 @@ class Zefoy:
 		request = self.session.post(f'{self.base_url}{self.services_ids[self.service]}', headers={'content-type':f'multipart/form-data; boundary=----WebKitFormBoundary{self.token}', 'user-agent':self.headers['user-agent'], 'origin':'https://zefoy.com'}, data=f'------WebKitFormBoundary{self.token}\r\nContent-Disposition: form-data; name="{self.video_info[0]}"\r\n\r\n{self.video_info[1]}\r\n------WebKitFormBoundary{self.token}--\r\n')
 		try: res = base64.b64decode(unquote(request.text.encode()[::-1])).decode()
 		except: time.sleep(3); return ""
-		if 'Session expired. Please re-login' in res: print('[\033[1;36mNam~Dev] ==>  Phiên hết hạn. Đang đăng nhập lại...');self.send_captcha(); return ""
+		if 'Session expired. Please re-login' in res: print(' \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Phiên Hết Hạn. Đang Đăng Nhập Lại!!!');self.send_captcha(); return ""
 		elif 'Too many requests. Please slow' in res: time.sleep(3)
-		elif 'service is currently not working' in res: return ('[\033[1;53mNam~Dev] ==>  Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.')
-		else: print(res.split("sans-serif;text-align:center;color:green;'>")[1].split("</")[0])
+		elif 'service is currently not working' in res: return (' \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Dịch Vụ Hiện Không Hoạt Động, Hãy Thử Lại Sau. | Bạn Có Thể Thay Đổi Nó Trong Cấu Hình!.')
+		else: print(" \033[1;97m[\033[1;31m+_+\033[1;97m] => ",res.split("sans-serif;text-align:center;color:green;'>")[1].split("</")[0])
 
 	def get_video_info(self):
 		request = self.session.get(f'https://tiktok.livecounts.io/video/stats/{urlparse(self.url).path.rpartition("/")[2]}',headers={'authority':'tiktok.livecounts.io','origin':'https://livecounts.io','user-agent':self.headers['user-agent']}).json()
@@ -161,9 +165,9 @@ class Zefoy:
 		url = urlparse(url_).path.rpartition('/')[2]
 		if url.isdigit(): self.url = url_; return url_
 		request = requests.get(f'https://api.tokcount.com/?type=videoID&username=https://vm.tiktok.com/{url}',headers={'origin': 'https://tokcount.com','authority': 'api.tokcount.com','user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'})
-		if request.text == '': print('[\033[1;31mNam~Dev] ==>  Link video không hợ lệ'); return False
+		if request.text == '': print(' \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Link Video Không Hợp Lệ'); return False
 		else: json_=request.json()
-		if 'author' not in json_: print(f'{self.url}| Link video không hợp lệ'); return False
+		if 'author' not in json_: print(f'{self.url}| Link Video Không Hợp Lệ'); return False
 		if set_url: self.url = f'https://www.tiktok.com/@{json_["author"]}/video/{json_["id"]}';print(f'Formated video url --> {self.url}')
 		return request.text
 
@@ -180,9 +184,70 @@ class Zefoy:
 			try:
 				ctypes.windll.kernel32.SetConsoleTitleA(self.text.encode())
 				video_info = self.get_video_info()
-				self.text = f"Nam~Dev ==>  | Views: {video_info['viewCount']} "
+				self.text = f" [NamDev] | Views: {video_info['viewCount']} "
 			except: pass
 			time.sleep(5)
+from random import choice, randint, shuffle
+from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
+from os.path import isfile
+import requests
+import base64, json,os
+from datetime import date
+from datetime import datetime
+from time import sleep,strftime
+time=datetime.now().strftime("%H:%M:%S")
+import requests
+import socket
+from pystyle import *
+
+import os
+try:
+	import requests,colorama,prettytable
+except:
+	os.system("pip install requests")
+	os.system("pip install colorama")
+	os.system("pip install prettytable")
+import threading, requests, ctypes, random, json, time, base64, sys, re
+from prettytable import PrettyTable
+import random
+from time import strftime
+from colorama import init, Fore
+from urllib.parse import urlparse, unquote, quote
+from string import ascii_letters, digits
+#import mĂ u
+luc = "\033[1;32m"
+trang = "\033[1;37m"
+do = "\033[1;31m"
+vang = "\033[0;93m"
+hong = "\033[1;35m"
+xduong = "\033[1;34m"
+xnhac = "\033[1;36m"
+red='\u001b[31;1m'
+yellow='\u001b[33;1m'
+green='\u001b[32;1m'
+blue='\u001b[34;1m'
+tim='\033[1;35m'
+xanhlam='\033[1;36m'
+xam='\033[1;30m'
+black='\033[1;19m'
+#today nand clear
+os.system('cls')
+data_machine = []
+today = date.today()
+os.system('clear')
+#daystime
+now = datetime.now()
+thu = now.strftime("%A")
+ngay_hom_nay = now.strftime("%d")
+thang_nay = now.strftime("%m")
+nam_ = now.strftime("%Y")
+def get_ip_from_url(url):
+    response = requests.get(url)
+    ip_address = socket.gethostbyname(response.text.strip())
+    return ip_address
+url = "http://kiemtraip.com/raw.php"
+ip = get_ip_from_url(url)
+a = " \033[1;97m[\033[1;31m+_+\033[1;97m] => "
 trang = "\033[1;37m"
 xanh_la = "\033[1;32m"
 xanh_duong = "\033[1;34m"
@@ -190,17 +255,9 @@ do = "\033[1;31m"
 vang = "\033[1;33m"
 tim = "\033[1;35m"
 dac_biet = "\033[32;5;245m\033[1m\033[38;5;39m"
-kt_code = "==> "
+kt_code = "</>"
 def logo():
     os.system("cls" if os.name == "nt" else "clear")
-    trang = "\033[1;37m"
-    xanh_la = "\033[1;32m"
-    xanh_duong = "\033[1;34m"
-    do = "\033[1;31m"
-    vang = "\033[1;33m"
-    tim = "\033[1;35m"
-    dac_biet = "\033[32;5;245m\033[1m\033[38;5;39m"
-    kt_code = "==> "
     logo=f"""
             \033[1;36m╭─⋞─────────────────────────────────────────────────────╮
             \033[1;31m███╗   ██╗ █████╗ ███╗   ███╗    ██████  ███████╗██╗   ██╗          
@@ -215,11 +272,13 @@ def logo():
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯ 
             \033[1;31m              TOOL BUFF VIEW TIKTOK ZEFOY
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯
-"""
-  
+  """
     print(logo)
+ngay = int(strftime('%d'))
+
+
 if 1:
-    print(f"{xanh_la}[Nam~Dev] Chào Mừng Bạn Đến Với Tool")
+    print(f"{xanh_la} \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Key Đúng Mời Bạn Vào Tool")
     logo()
     Z = Zefoy()
     threading.Thread(target=Z.check_config).start()
@@ -228,11 +287,10 @@ if 1:
     Z.send_captcha()
     Z.get_table()
 else:
-    print(f"{do}Nhập Sai Rồi")
+    print(f"{do} \033[1;97m[\033[1;31m+_+\033[1;97m] =>  Key Sai Vui Lòng Nhập Lại")
     exit()
 
 while True:
 	try: 
-		if 'Service is currently not working, try again later' in str(Z.use_service()): print(f'{do}[\033[1;33mNam~Dev] ==> Dịch vụ hiện không hoạt động, hãy thử lại sau. | Bạn có thể thay đổi nó trong cấu hình.');time.sleep(5)
-	except Exception as e:print(f'LỖI NGHIÊM TÚC | Thử lại sau 10 giây.|| {e}');time.sleep(10)
-	
+		if 'Service is currently not working, try again later' in str(Z.use_service()): print(f'{do} \033[1;97m[\033[1;31m+_+\033[1;97m] => Dịch Vụ Hiện Không Hoạt Động, Hãy Thử Lại Sau. | Bạn Có Thể Thay Đổi Nó Trong Cấu Hình!.');time.sleep(5)
+	except Exception as e:print(f'Xảy Ra Lỗi | Thử Sau 10 Giây.| {e}');time.sleep(10)

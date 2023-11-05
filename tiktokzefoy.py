@@ -116,7 +116,7 @@ class Zefoy:
         return (self.services, self.services_status)
 
     def get_table(self, i = 1):
-        table = PrettyTable(field_names=["ID", "DỊCH VỤ", "Status"], title="Status Services", header_style="upper",border=True)
+        table = PrettyTable(field_names=["ID", "Dịch Vụ", "Trạng Thái"], title="Status Services", header_style="upper",border=True)
         while True:
             if len(self.get_status_services()[0])>1:break
             else:print('Cant get services, retrying...');self.send_captcha();time.sleep(2)
@@ -145,18 +145,35 @@ class Zefoy:
             elif 'Checking Timer...' in self.video_info:
                 try: 
                     t=int(re.findall(r'ltm=(\d*);', self.video_info)[0])
-                    zyfoy = int(re.findall(r'ltm=(\d*);', self.video_info)[0])
+                    namdev = int(re.findall(r'ltm=(\d*);', self.video_info)[0])
                 except: 
                     return (False,)
-                if zyfoy==0:self.find_video()
-                elif zyfoy >= 1000:
+                if namdev==0:self.find_video()
+                elif namdev >= 1000:
                     print('IP ĐÃ BỊ CHẶN')
                 _=time.time()
-                while time.time()-2<_+zyfoy:
+                while time.time()-2<_+namdev:
                     t-=1
-                    print(f"{do}[{vang}</>{do}]{vang}Vui Lòng Chờ: {0} ".format(t)+"\033[1;35mgiây\033[1;32m .", end="\r")
+                    print("\r\033[1;31m[\033[1;31mNamDev\033[1;31m] \033[1;90m        \033[1;92m       \033[1;90m | {0} ".format(t)+" | \r ", end='')
+                    sleep(0.14)
+                    print("\r\033[1;31m[\033[1;31mNamDev\033[1;31m] \033[1;98m ~>       \033[1;92m L      \033[1;90m | {0} ".format(t)+" | \r ", end='')
+                    sleep(0.14)
+                    print("\r\033[1;31m[\033[1;32mNamDev\033[1;31m] \033[1;97m   ~>     \033[1;93m LO     \033[0;31m | {0} ".format(t)+" | \r ", end='')
+                    sleep(0.14)
+                    print("\r\033[1;31m[\033[1;33mNamDev\033[1;31m] \033[1;96m     ~>   \033[1;94m LOA    \033[0;33m | {0} ".format(t)+" | \r", end='')
+                    sleep(0.14)
+                    print("\r\033[1;31m[\033[1;34mNamDev\033[1;31m] \033[1;95m       ~> \033[1;95m LOAD   \033[0;34m | {0} ".format(t)+" | \r", end='')
+                    sleep(0.14)
+                    print("\r\033[1;31m[\033[1;35mNamDev\033[1;31m] \033[1;94m        ~>\033[1;96m LOADI  \033[0;35m | {0} ".format(t)+" | \r", end='')
+                    sleep(0.14)
+                    print("\r\033[1;31m[\033[1;36mNamDev\033[1;31m] \033[1;93m        ~>\033[1;97m LOADIN \033[0;36m | {0} ".format(t)+" | \r", end='')
+                    sleep(0.14)
+                    print("\r\033[1;31m[\033[1;30mNamDev\033[1;31m] \033[1;92m        ~>\033[1;98m LOADING\033[0;32m | {0} ".format(t)+" | \r", end='')
+                    sleep(0.14)
+                    print("\r\r\033[1;95m    Nguyễn Hoàng Nam \033[1;97m                         \r", end='')
                     time.sleep(1)
-                continue
+					
+                    continue
             elif 'Too many requests. Please slow' in self.video_info:
                 time.sleep(3)
             else:
