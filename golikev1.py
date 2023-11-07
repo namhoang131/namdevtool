@@ -1,6 +1,8 @@
 import requests,sys,os,time,json
 from datetime import date
 from datetime import datetime
+import platform
+import webbrowser
 # tz_VietNam = pytz.timezone('Asia/Ho_Chi_Minh')
 ctt = "Nếu bạn cho rằng nội dung này không vi phạm Tiêu chuẩn cộng đồng của chúng tôi,"
 cp1 = "Tham gia Facebook hoặc đăng nhập để tiếp tục."
@@ -35,6 +37,21 @@ def cc(title):
     for i in title:
         print(i,end='')
         time.sleep(0.02)
+def open_webpage(link):
+    # Kiểm tra loại thiết bị
+    device = platform.system()
+    if device == "Windows":
+        # Nếu là máy tính cá nhân chạy Windows, mở trang web bằng trình duyệt mặc định của máy tính
+        webbrowser.open(link)
+    elif device == "Darwin":
+        # Nếu là máy tính cá nhân chạy macOS, mở trang web bằng trình duyệt mặc định của macOS
+        webbrowser.open(link)
+    elif device == "Linux":
+        # Nếu là máy tính cá nhân chạy Linux, mở trang web bằng trình duyệt mặc định của Linux
+        webbrowser.open(link)
+    else:
+        # Nếu là thiết bị di động hoặc không xác định, mở trang web bằng trình duyệt mặc định của thiết bị
+        webbrowser.open(link)
 def login(author,t):
     head_login = {
         "Accept": "application/json, text/plain, */*",
@@ -146,7 +163,7 @@ while True:
     id_job = getjob['data']['id']
     type_acction = getjob['data']['type']
     object_id = getjob['data']['object_id']
-    os.system('termux-open '+link)
+    open_webpage(link)
     # os.system('start '+link)
     for i in range(11,0,-1):
         if (type_acction == "follow"):

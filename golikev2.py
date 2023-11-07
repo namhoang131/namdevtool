@@ -32,6 +32,8 @@ from bs4 import BeautifulSoup
 import time
 from time import sleep
 import json
+import platform
+import webbrowser
 os.system('clear')
  
 init(autoreset=True)
@@ -61,11 +63,11 @@ def time():
 
 
 
-def changetoken(red,green,white):
+def changetoken(red,green,white,cyan):
   if not os.path.exists("cache_golike_auth.txt"):
    pass
   else:
-    text=f'''{lam}BẠN MUỐN DÙNG AUTH CŨ HAY ĐỔI AUTH
+    text=f'''{cyan}BẠN MUỐN DÙNG AUTH CŨ HAY ĐỔI AUTH
 {red}[{yellow}1{red}] ĐỔI AUTH
 {red}[{yellow}2{red}] DÙNG AUTH CŨ'''
     pr3(text)
@@ -180,13 +182,13 @@ def checkauth(red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink):
                   globals()[f'{i}'] = nickname
               # In giá trị của các biến
               for i, nickname in enumerate(nicknames, start=1):
-                  text=f'{red}[{lam}{i}{red}]: {globals()[f"{i}"]}'
+                  text=f'{red}[{cyan}{i}{red}]: {globals()[f"{i}"]}'
                   pr(text)
               with open("cache_golike_auth.txt", "w") as state_file:
                 state_file.write(auth)
               return auth,check
       else:
-        text=f'~[+]{red}FAIL AUTH KHÔNG CHÍNH XÁC>>{lam}VUI LÒNG NHẬP LẠI'
+        text=f'~[+]{red}FAIL AUTH KHÔNG CHÍNH XÁC>>{cyan}VUI LÒNG NHẬP LẠI'
         continue 
     else:
         with open('cache_golike_auth.txt') as f:
@@ -227,7 +229,7 @@ def checkauth(red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink):
               pr(text)
               # In giá trị của các biến
               for i, nickname in enumerate(nicknames, start=1):
-                  text=f'{red}[{lam}{i}{red}]: {globals()[f"{i}"]}'
+                  text=f'{red}[{cyan}{i}{red}]: {globals()[f"{i}"]}'
                   pr(text)
                   
             return auth, check
@@ -252,6 +254,21 @@ def get_id_from_nickname_number(ranmau,check,red,blue,green,yellow,cyan,magenta,
     except ValueError:
           pr(f"{red}VUI LÒNG CHỈ NHẬP SỐ.")
           continue 
+def open_webpage(link):
+    # Kiểm tra loại thiết bị
+    device = platform.system()
+    if device == "Windows":
+        # Nếu là máy tính cá nhân chạy Windows, mở trang web bằng trình duyệt mặc định của máy tính
+        webbrowser.open(link)
+    elif device == "Darwin":
+        # Nếu là máy tính cá nhân chạy macOS, mở trang web bằng trình duyệt mặc định của macOS
+        webbrowser.open(link)
+    elif device == "Linux":
+        # Nếu là máy tính cá nhân chạy Linux, mở trang web bằng trình duyệt mặc định của Linux
+        webbrowser.open(link)
+    else:
+        # Nếu là thiết bị di động hoặc không xác định, mở trang web bằng trình duyệt mặc định của thiết bị
+        webbrowser.open(link)
 def getjob(maxjob,delay,auth,idtiktok,red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink):
   startmaxjob=1
   while True :
@@ -263,7 +280,7 @@ def getjob(maxjob,delay,auth,idtiktok,red,blue,green,yellow,cyan,magenta,orange,
     link=a['data']['link']
     id=a['data']['id']
     object_id=a['lock']['object_id']
-    os.system(f'termux-open-url {link}')
+    open_webpage(link)
     
     for k in range(delay,-1,-1):
       mau=random.choice(ranmau)
@@ -365,7 +382,7 @@ banner(red,green,blue,yellow,cyan,pink)
 ver=checkver()       
 if ver == 'Version 2.0':
   print(f'{pink}VERSION 2.0')
-  changetoken(red,green,white) 
+  changetoken(red,green,white,cyan) 
   auth,check =checkauth(red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink)
   
   idtiktok =get_id_from_nickname_number(ranmau,check,red,blue,green,yellow,cyan,magenta,orange,xanhnhat,xduong,pink)
