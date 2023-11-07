@@ -1,7 +1,3 @@
-import os,sys,requests,threading
-from time import sleep
-from datetime import datetime
-os.system('title TOOL REACTION STORY')
 luc = "\033[1;32m"
 trang = "\033[1;37m"
 do = "\033[1;31m"
@@ -9,36 +5,59 @@ vang = "\033[0;93m"
 hong = "\033[1;35m"
 xduong = "\033[1;34m"
 lam = "\033[1;36m"
-red='\u001b[31;1m'
-yellow='\u001b[33;1m'
-green='\u001b[32;1m'
-blue='\u001b[34;1m'
-tim='\033[1;35m'
-xanhlam='\033[1;36m'
-xam='\033[1;30m'
-black='\033[1;19m'
+# Đánh Dấu Bản Quyền
+ndp_tool = trang + "~" + trang + "[" + do + "+" + trang + "] " + trang + "=> "
+ndp = trang + "~" + trang + "[" + do + "÷" + trang + "] " + trang + "=> "
+# Config
 dem = 0
+# PHẦN LIST
 listcx = []
 list_page_pro5 = []
+# import lib
+import os,sys,requests,threading
+from time import sleep
+from datetime import datetime
 try:
     import requests
 except:
     print(luc+"Bạn Chưa Tải Thư Viện \n Bắt Đầu Tải... ")
     os.system("pip install requests")
 # ====================== [ FUNCTION ] ======================
+def echo(a):
+   for i in range(len(a)):
+     sys.stdout.write(a[i])
+     sys.stdout.flush()
+     sleep(0.00)
+   print()
+def banner():
+    banner = f"""
+            \033[1;36m╭─⋞─────────────────────────────────────────────────────╮
+            \033[1;31m███╗   ██╗ █████╗ ███╗   ███╗    ██████  ███████╗██╗   ██╗          
+            \033[1;32m████╗  ██║██╔══██╗████╗ ████║    ██╔══██╗██╔════╝██║   ██║          
+            \033[1;33m██╔██╗ ██║███████║██╔████╔██║    ██║  ██║█████╗  ╚██╗ ██╔╝          
+            \033[1;34m██║╚██╗██║██╔══██║██║╚██╔╝██║    ██║  ██║██╔══╝   ╚████╔╝           
+            \033[1;35m██║ ╚████║██║  ██║██║ ╚═╝ ██║    ██████╔╝███████╗  ╚██╔╝            
+            \033[1;36m╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝    ╚═════╝ ╚══════╝   ╚═╝   
+            \033[1;34m Youtube : \033[1;37mhttps://youtube.com/@NamTool1
+            \033[1;34m Nhóm Zalo : \033[1;37mhttps://zalo.me/g/kfmgqm225
+            \033[1;34m Facebook   : \033[1;37mhttps://facebook.com/nam.nhn131 
+            \033[1;36m╰─────────────────────────────────────────────────────⋟─╯ 
+            \033[1;31m            TOOL BUFF REACT STORY BẰNG PROFILE
+            \033[1;36m╰─────────────────────────────────────────────────────⋟─╯"""
+    echo(banner)
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
 def thanh():
-    print('────────────────────────────────────────────────────────────')
-def nam_delay(o):
+    print('\033[1;37m- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -')
+def ndp_delay(o):
     while(o>1):
         o=o-1
-        print(f'[NAM-DEV][.....][{o}]','     ',end='\r');sleep(1/6)
-        print(f'[NAM-DEV][X....][{o}]','     ',end='\r');sleep(1/6)
-        print(f'[NAM-DEV][XX...][{o}]','     ',end='\r');sleep(1/6)
-        print(f'[NAM-DEV][XXX..][{o}]','     ',end='\r');sleep(1/6)
-        print(f'[NAM-DEV][XXXX.][{o}]','     ',end='\r');sleep(1/6)
-        print(f'[NAM-DEV][XXXXX][{o}]','     ',end='\r');sleep(1/6)
+        print(f'{trang}[\033[1;31mN\033[1;33mA\033[1;36mM\033[1;35mD\033[1;34mE\033[1;32mV\033[1;37m[\033[1;36m|\033[1;37m]\033[1;37m[.....]\033[1;37m[{o}]','     ',end='\r');sleep(1/6)
+        print(f'{trang}[\033[1;31mN\033[1;33mA\033[1;36mM\033[1;35mD\033[1;34mE\033[1;32mV\033[1;37m[\033[1;31m/\033[1;37m]\033[1;37m[\033[1;32m>\033[1;37m....]\033[1;37m[{o}]','     ',end='\r');sleep(1/6)
+        print(f'{trang}[\033[1;31mN\033[1;33mA\033[1;36mM\033[1;35mD\033[1;34mE\033[1;32mV\033[1;37m[\033[1;32m-\033[1;37m]\033[1;37m[\033[1;32m>\033[1;31m>\033[1;37m...]\033[1;37m[{o}]','     ',end='\r');sleep(1/6)
+        print(f'{trang}[\033[1;31mN\033[1;33mA\033[1;36mM\033[1;35mD\033[1;34mE\033[1;32mV\033[1;37m[\033[1;33m+\033[1;37m]\033[1;37m[\033[1;32m>\033[1;31m>\033[1;36m>\033[1;37m..]\033[1;37m[{o}]','     ',end='\r');sleep(1/6)
+        print(f'{trang}[\033[1;31mN\033[1;33mA\033[1;36mM\033[1;35mD\033[1;34mE\033[1;32mV\033[1;37m[\033[1;34m\{trang}]\033[1;37m[\033[1;32m>\033[1;31m>\033[1;36m>\033[1;33m>\033[1;37m.]\033[1;37m[{o}]','     ',end='\r');sleep(1/6)
+        print(f'{trang}[\033[1;31mN\033[1;33mA\033[1;36mM\033[1;35mD\033[1;34mE\033[1;32mV\033[1;37m[\033[1;35m|\033[1;37m]\033[1;37m[\033[1;32m>\033[1;31m>\033[1;36m>\033[1;33m>\033[1;35m>\033[1;37m]\033[1;37m[{o}]','     ',end='\r');sleep(1/6)
 def tangcxstr(x, dem, linkstr, dataurlstr):
     camxuc = listcx[0]
     time = datetime.now().strftime("%H:%M:%S")
@@ -96,26 +115,13 @@ def tangcxstr(x, dem, linkstr, dataurlstr):
 
     runtanglikestr = requests.post('https://www.facebook.com/api/graphql/', headers=headers, data=data).text
     if 'data' in runtanglikestr:
-        print('['+str(dem)+'] | '+str(time)+' | SUCCESS | '+str(uid_page)+' | '+str(name_page)+' | '+str(camxuc)+' | '+str(dataurlstr)+' ')
+        print('\033[1;31m[\033[0;93m'+str(dem)+'\033[1;31m] | \033[1;36m'+str(time)+' \033[1;31m| \033[0;93mSUCCESS \033[1;31m| \033[1;34m'+str(uid_page)+' \033[1;31m| \033[1;35m'+str(name_page)+' \033[1;31m| \033[1;37m'+str(camxuc)+' \033[1;31m| \033[1;37m'+str(dataurlstr)+' ')
     else:
-        print('Tăng Cảm Xúc Thất Bại')
+        print('\033[1;31mTăng Cảm Xúc Thất Bại, Có Vẻ ACC Bạn Đã Bị Block!!')
 # =================[ CLEAR + THÔNG SỐ ADMIN ]===========================
 clear()
-print("""
-            \033[1;36m╭─⋞─────────────────────────────────────────────────────╮
-            \033[1;31m███╗   ██╗ █████╗ ███╗   ███╗    ██████  ███████╗██╗   ██╗          
-            \033[1;32m████╗  ██║██╔══██╗████╗ ████║    ██╔══██╗██╔════╝██║   ██║          
-            \033[1;33m██╔██╗ ██║███████║██╔████╔██║    ██║  ██║█████╗  ╚██╗ ██╔╝          
-            \033[1;34m██║╚██╗██║██╔══██║██║╚██╔╝██║    ██║  ██║██╔══╝   ╚████╔╝           
-            \033[1;35m██║ ╚████║██║  ██║██║ ╚═╝ ██║    ██████╔╝███████╗  ╚██╔╝            
-            \033[1;36m╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝    ╚═════╝ ╚══════╝   ╚═╝   
-            \033[1;34m Youtube : \033[1;37mhttps://youtube.com/@NamTool1
-            \033[1;34m Nhóm Zalo : \033[1;37mhttps://zalo.me/g/kfmgqm225
-            \033[1;34m Facebook   : \033[1;37mhttps://facebook.com/nam.nhn131 
-            \033[1;36m╰─────────────────────────────────────────────────────⋟─╯ 
-            \033[1;31m              TOOL BUFF REACT STORY BẰNG PROFILE
-            \033[1;36m╰─────────────────────────────────────────────────────⋟─╯""")
-cookie = input(f'{trang}Nhập Cookie Facebook: {vang}')
+banner()
+cookie = input(ndp_tool+luc+'Vui Lòng Nhập Cookie Chứa Page Pro5'+trang+': '+vang)
 # GET fb_dtsg + jazoest
 headers = {
         'authority': 'mbasic.facebook.com',
@@ -138,12 +144,12 @@ headers = {
 }
     
 try:
-    print(f"\033[1;32mĐang Check Live Cookie...", end="\r")
+    print(ndp_tool+xnhac+"Đang Check Live Cookie...", end="\r")
     find_data = requests.get("https://mbasic.facebook.com/", headers=headers).text
     fb_dtsg = find_data.split('<input type="hidden" name="fb_dtsg" value="')[1].split('"')[0]
     jazoest = find_data.split('<input type="hidden" name="jazoest" value="')[1].split('"')[0]
 except:
-    exit(f"{do}Cookie Die")
+    exit(ndp_tool+do+"Cookie Die Vui Lòng Kiểm Tra Lại!!!")
 
 # get id + name page
 headers_getid = {
@@ -164,24 +170,26 @@ for i in getidpro5:
     list_page_pro5.append(gomlist)
 # NHẬP THÔNG SỐ ĐỂ CHẠY TOOL
 clear()
-print(f'{lam}Đã Tìm Thấy '+str(len(list_page_pro5))+' Page')
+banner()
+print(ndp_tool+luc+'GET THÀNH CÔNG'+trang+': '+str(len(list_page_pro5))+lam+' Page Pro5')
 thanh()
-linkstr = input(f'{trang}Vui Lòng Nhập Link Story: {vang}')
+linkstr = input(ndp_tool+trang+'Vui Lòng Nhập Link Story'+trang+': '+vang)
 # TÁCH DATA TRONG URL STR
 dataurlstr = linkstr.split('/')[5].split('/?')[0]
 # GET THÀNH CÔNG
 thanh()
-print('Success id: : '+str(dataurlstr)+'')
+print(ndp_tool+do+'['+vang+'SUCCESS'+do+']'+trang+': '+xnhac+'ID STORY CỦA BẠN LÀ'+trang+': '+trang+str(dataurlstr)+'')
 thanh()
-print('Nhập Số [1] Để Tăng Cảm Xúc Like')
-print('Nhập Số [2] Để Tăng Cảm Xúc Love')
-print('Nhập Số [3] Để Tăng Cảm Xúc Care')
-print('Nhập Số [4] Để Tăng Cảm Xúc Haha')
-print('Nhập Số [5] Để Tăng Cảm Xúc Wow')
-print('Nhập Số [6] Để Tăng Cảm Xúc Sad')
-print('Nhập Số [7] Để Tăng Cảm Xúc Angry')
+# NHẬP CẢM XÚC
+print(ndp_tool+luc+'Nhập Số '+do+'['+vang+'1'+do+'] '+trang+'Để Tăng Cảm Xúc '+hong+'Like')
+print(ndp_tool+luc+'Nhập Số '+do+'['+vang+'2'+do+'] '+trang+'Để Tăng Cảm Xúc '+hong+'Love')
+print(ndp_tool+luc+'Nhập Số '+do+'['+vang+'3'+do+'] '+trang+'Để Tăng Cảm Xúc '+hong+'Care')
+print(ndp_tool+luc+'Nhập Số '+do+'['+vang+'4'+do+'] '+trang+'Để Tăng Cảm Xúc '+hong+'Haha')
+print(ndp_tool+luc+'Nhập Số '+do+'['+vang+'5'+do+'] '+trang+'Để Tăng Cảm Xúc '+hong+'Wow')
+print(ndp_tool+luc+'Nhập Số '+do+'['+vang+'6'+do+'] '+trang+'Để Tăng Cảm Xúc '+hong+'Sad')
+print(ndp_tool+luc+'Nhập Số '+do+'['+vang+'7'+do+'] '+trang+'Để Tăng Cảm Xúc '+hong+'Angry')
 thanh()
-cx = int(input('\033[1;37mVui Lòng Nhập Lựa Chọn: \033[1;33m'))
+cx = int(input(ndp_tool+trang+'Vui Lòng Nhập Lựa Chọn'+trang+': '+vang))
 if cx == 1:
     listcx.append('👍')
 if cx == 2:
@@ -197,16 +205,16 @@ if cx == 6:
 if cx == 7:
     listcx.append('😡')
 thanh()
-soluongcx = int(input('\033[1;37mSố Reaction Cần Tăng: \033[1;33m'))
+soluongcx = int(input(ndp_tool+trang+'Nhập Số Lượng Cảm Xúc Cần Tăng'+trang+': '+vang))
 thanh()
-delay = int(input('\033[1;37mNhập Delay Reaction: \033[1;33m'))
+delay = int(input(ndp_tool+trang+'Vui Lòng Nhập Delay Tăng Cảm Xúc'+trang+': '+vang))
 thanh()
 while True:
     for x in range(int(len(list_page_pro5))):
         dem=dem+1
         threading.Thread(target=tangcxstr,args=(x, dem, linkstr, dataurlstr, )).start()
-        nam_delay(delay)
+        ndp_delay(delay)
         if dem == soluongcx:
             thanh()
-            exit('Success '+str(soluongcx)+' Cảm Xúc ')
+            exit(ndp_tool+luc+'Đã Hoàn Thành '+trang+str(soluongcx)+lam+' Cảm Xúc ')
             thanh()

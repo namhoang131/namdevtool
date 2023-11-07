@@ -3,88 +3,9 @@ import socket
 os.system("clear")
 from time import sleep
 ip=socket.gethostbyname(socket.gethostname())
-from random import choice, randint, shuffle
-from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
-from os.path import isfile
-import requests
-import base64, json,os
-from datetime import date
-from datetime import datetime
-from time import sleep,strftime
-time=datetime.now().strftime("%H:%M:%S")
-import requests
-import socket
-from pystyle import *
-#import màu
-luc = "\033[1;32m"
-
-trang = "\033[1;37m"
-
-do = "\033[1;31m"
-
-vang = "\033[0;93m"
-
-hong = "\033[1;35m"
-
-lam = "\033[1;34m"
-
-xnhac = "\033[1;36m"
-
-red='\u001b[31;1m'
-
-yellow='\u001b[33;1m'
-
-green='\u001b[32;1m'
-
-blue='\u001b[34;1m'
-
-tim='\033[1;35m'
-
-xanhlam='\033[1;36m'
-
-xam='\033[1;30m'
-
-black='\033[1;19m'
-
-#Đánh Dấu Bản Quyền
-
-LCT_tool = trang + "~" + trang + "[" + do + "+" + trang + "] " + trang + "=> "
-
-toandz = trang + "~" + trang + "[" + do + "÷" + trang + "] " + trang + "=> "
-
-thanh = trang + "-------------------------------------------------------------------------"
-
-#today nand clear
-
-os.system('cls')
-
-data_machine = []
-
-today = date.today()
-
-os.system('clear')
-
-#daystime
-
-now = datetime.now()
-
-thu = now.strftime("%A")
-
-ngay_hom_nay = now.strftime("%d")
-
-thang_nay = now.strftime("%m")
-
-nam_ = now.strftime("%Y")
-def get_ip_from_url(url):
-    response = requests.get(url)
-    ip_address = socket.gethostbyname(response.text.strip())
-    return ip_address
-url = "http://kiemtraip.com/raw.php"
-ip = get_ip_from_url(url)
-a = " \033[1;97m[\033[1;31m+_+\033[1;97m] => "
-def logo():
-    os.system("cls" if os.name == "nt" else "clear")
-    logo=f"""
+th='- - - - - - - - - - - - - - - - - - - - - - - - -'
+def ban():
+ print(f'''
             \033[1;36m╭─⋞─────────────────────────────────────────────────────╮
             \033[1;31m███╗   ██╗ █████╗ ███╗   ███╗    ██████  ███████╗██╗   ██╗          
             \033[1;32m████╗  ██║██╔══██╗████╗ ████║    ██╔══██╗██╔════╝██║   ██║          
@@ -96,16 +17,13 @@ def logo():
             \033[1;34m Nhóm Zalo : \033[1;37mhttps://zalo.me/g/kfmgqm225
             \033[1;34m Facebook   : \033[1;37mhttps://facebook.com/nam.nhn131 
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯ 
-            \033[1;31m    TOOL SPAM MESSENGER
+            \033[1;31m                   TOOL SPAM MESSENGER
             \033[1;36m╰─────────────────────────────────────────────────────⋟─╯
-  """
-    print(logo)
-#=======================[ NHẬP KEY ]=======================
-os.system("cls" if os.name == "nt" else "clear")
-logo()
-id=input(f'{trang}Nhập id người cần spam: {vang} ')
+''')
+ban()
+id=input('\033[1;31m[\033[1;33m</>\033[1;31m] \x1b[1;37mNhập ID Người Cần Gửi: \033[1;33m')
 while True:
-    ck=input(f' {trang}Nhập cookie facebook: {vang} ')
+    ck=input('\033[1;31m[\033[1;33m</>\033[1;31m] \x1b[37mNhập Cookie Facebook: \033[1;33m')
     try:
         get=requests.get(f'https://mbasic.facebook.com/privacy/touch/block/confirm/?bid={id}&ret_cancel&source=profile',headers={'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','cookie': ck,'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1'}).text
         fb_dtsg=get.split('<input type="hidden" name="fb_dtsg" value="')[1].split('" autocomplete="off" />')[0]
@@ -113,13 +31,13 @@ while True:
         os.system('cls')
         break
     except:
-        print(f'{do}Cookie sai!!')
+        print('Cookie sai!!')
     
 
-
-nd=input(f' {trang}hập nội dung:{vang} ')
-so_luong=int(input('\033[1;37mNhập số tin nhắn muốn gửi: \033[1;33m '))
-delay=int(input('\033[1;37mNhập delay\033[1;37m: \033[1;33m'))
+ban()
+nd=input('\033[1;31m[\033[1;33m</>\033[1;31m] \x1b[1;37mNhập Nội Dung: \033[1;33m')
+so_luong=int(input('\033[1;31m[\033[1;33m</>\033[1;31m] \x1b[1;37mNhập Số Tin Nhắn Muốn Gửi: \033[1;33m'))
+delay=int(input('\033[1;31m[\033[1;33m</>\033[1;31m] \x1b[1;37mmNhập Delay \033[1;31m(Khuyến Cáo Trên 10s)\033[1;37m: \033[1;33m'))
 headers = {
     'authority': 'm.facebook.com',
     'accept': '*/*',
@@ -152,5 +70,5 @@ data = {
 }
 for i in range(1,so_luong+1):
     response = requests.post('https://m.facebook.com/messages/send/', params=params, headers=headers, data=data)
-    print(f'{lam}TOOL MADE BY NAM {do}|{luc}{i} Send Success {do}| {vang}{nd}')
+    print(f'{lam}{i} {luc}Gửi Thành Công | {vang}{nd}')
     sleep(delay)
